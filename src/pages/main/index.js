@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
 import "./styles.css";
+import { Link } from 'react-router-dom';
 
 export default class Main extends Component {
     state = {
@@ -49,10 +50,11 @@ export default class Main extends Component {
                         </strong>
                         <p>
                             {product.description}
-                            <a> Acessar </a>
                         </p>
+                       <Link to={`/products/${product._id}`}> Acessar </Link>
+                        
                     </article>
-                ))}
+            ))}
                 <div className="actions">
                     <button disabled={page === 1} onClick={this.prevPage}>anterior</button>
                     <button disabled={page === productInfo.pages} onClick={this.nextPage}>proximo</button>
